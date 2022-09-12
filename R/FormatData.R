@@ -17,7 +17,7 @@ FindSimilarVar <- function(dataFrame, Nlevel = 2)
   Similar <- function(v, compare)
   {
     comparisons <- 0
-    for (index in 1:min(3, (max(1,str_length(v)-Nlevel))))
+    for (index in 1:min(3, (max(1,stringr::str_length(v)-Nlevel))))
     {
       comString <- substring(compare, index, (index+Nlevel)-1)
       if (str_detect(comString, substring(v, index, (index+min(Nlevel,(Nlevel-1))))))
@@ -57,7 +57,7 @@ GetIndex <- function(v)
     n <- names(v)
   else
     n <- v
- return(as.numeric(substring(n, str_length(n),str_length(n))))
+ return(as.numeric(substring(n, stringr::str_length(n),stringr::str_length(n))))
 }
 
 GetMaxLevels<- function(groups)
